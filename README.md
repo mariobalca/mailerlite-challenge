@@ -1,7 +1,7 @@
 ## MailerLite Challenge
 ### Description
 
-Code challenge made for [MailerLite](https://mailerlite.com) to the Laravel and Vue.js Developer position.
+Code challenge made for [MailerLite](https://mailerlite.com) (Laravel and Vue.js Developer position)
 
 [Live demo](https://google.com)
 
