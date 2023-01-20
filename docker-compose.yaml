@@ -1,0 +1,19 @@
+services:
+  backend:
+    build:
+      context: ./vendor/laravel/sail/runtimes/8.2
+      dockerfile: Dockerfile
+    image: sail-8.2/app
+    ports:
+      - 8000:80
+    volumes:
+      - './backend:/var/www/html'
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 5173:5173
+    volumes:
+      - './frontend:/app'
+      - '/app/node_modules'
