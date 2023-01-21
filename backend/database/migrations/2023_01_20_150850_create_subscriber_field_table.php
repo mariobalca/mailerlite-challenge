@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('subscriber_field_values', function (Blueprint $table) {
+        Schema::create('subscriber_field', function (Blueprint $table) {
             $table->uuid('id');
             $table->foreignUuid('subscriber_id');
             $table->foreignUuid('field_id');

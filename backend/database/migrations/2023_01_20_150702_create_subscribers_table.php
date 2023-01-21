@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id');
             $table->string('email')->unique();
             $table->string('name');
-            $table->enum('state', ['active', 'unsubscribed', 'junk', 'bounced', 'unconfirmed']);
+            $table->enum('state', ['active', 'unsubscribed', 'junk', 'bounced', 'unconfirmed'])->nullable();
             $table->timestamps();
         });
     }
