@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SubscriberRequest;
-use App\Models\Field;
 use App\Models\Subscriber;
 use Illuminate\Http\Response;
 
@@ -22,21 +21,23 @@ class SubscriberController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  SubscriberRequest  $request
+     * @param SubscriberRequest $request
      * @return Response
      */
     public function store(SubscriberRequest $request)
     {
         $subscriber = Subscriber::create($request->all());
-        $subscriber->syncFields($request->get('fields'));
+        if ($request->has('fields') && sizeof($request->get('fields')) > 0) {
+            $subscriber->syncFields($request->get('fields'));
+        }
 
-        return response($subscriber, 201);
+        return response(Subscriber::find($subscriber->id), 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function show($id)
@@ -47,15 +48,18 @@ class SubscriberController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  SubscriberRequest  $request
-     * @param  int  $id
+     * @param SubscriberRequest $request
+     * @param int $id
      * @return Response
      */
     public function update(SubscriberRequest $request, $id)
     {
         $subscriber = Subscriber::find($id);
         $subscriber->update($request->all());
-        $subscriber->syncFields($request->get('fields'));
+
+        if ($request->has('fields') && sizeof($request->get('fields')) > 0) {
+            $subscriber->syncFields($request->get('fields'));
+        }
 
         return response(Subscriber::find($id), 200);
     }
@@ -63,7 +67,7 @@ class SubscriberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function destroy($id)

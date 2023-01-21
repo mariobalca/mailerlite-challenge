@@ -12,7 +12,7 @@ class SyncFieldsTest extends TestCase
     use DatabaseMigrations;
 
     /**
-     * A basic feature test example.
+     * Test number of subscriber_field records created when no fields/values are passed.
      *
      * @return void
      */
@@ -24,7 +24,7 @@ class SyncFieldsTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
+     * Test number of subscriber_field records created when two fields/values are passed.
      *
      * @return void
      */
@@ -43,7 +43,7 @@ class SyncFieldsTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
+     * Test number of subscriber_field records when five fields/values are passed.
      *
      * @return void
      */
