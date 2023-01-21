@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subscribers_fields');
+        Schema::dropIfExists('subscriber_field');
     }
 };

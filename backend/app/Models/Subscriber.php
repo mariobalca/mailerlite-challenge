@@ -18,7 +18,8 @@ class Subscriber extends Model
         'state',
     ];
 
-    public function fields() {
+    public function fields()
+    {
         return $this
             ->belongsToMany(Field::class, 'subscriber_field')
             ->using(SubscriberField::class)
@@ -27,10 +28,13 @@ class Subscriber extends Model
             ->withTimestamps();
     }
 
-    public function syncFields($fields) {
-        foreach($fields as $attribute => $value) {
+    public function syncFields($fields)
+    {
+        $mappedFields = [];
+        array_walk($fields, function ($value, $attribute) use (&$mappedFields) {
             $field = Field::where('title', $attribute)->first();
-            $this->fields()->syncWithPivotValues($field->id, ['value' => $value]);
-        }
+            $mappedFields[$field->id] = ['value' => $value];
+        });
+        $this->fields()->sync($mappedFields);
     }
 }
