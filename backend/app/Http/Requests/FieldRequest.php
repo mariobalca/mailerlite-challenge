@@ -24,7 +24,6 @@ class FieldRequest extends FormRequest
     public function rules()
     {
         return [
-            'id'    => 'uuid',
             'title' => 'required|max:255|unique:fields,title' . $this->field,
             'type'  => 'required|in:date,number,string,boolean'
         ];

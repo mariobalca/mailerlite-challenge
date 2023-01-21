@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource("subscriber", SubscriberController::class);
-Route::resource("field", FieldController::class);
+Route::apiResource("subscriber", SubscriberController::class);
+Route::apiResource("field", FieldController::class);

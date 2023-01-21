@@ -25,7 +25,6 @@ class SubscriberRequest extends FormRequest
     public function rules()
     {
         return [
-            'id'        => 'uuid',
             'email'     => 'required|email|unique:subscribers,email' . $this->subscriber,
             'name'      => 'required|max:255',
             'state'     => 'in:unsubscribed:junk:bounced:unconfirmed',
