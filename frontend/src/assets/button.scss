@@ -1,0 +1,84 @@
+.el-button.btn, .btn {
+  @apply inline-flex items-center rounded-md border-none px-5 py-3 h-10;
+
+  &__primary {
+    @apply bg-brand-900 text-white;
+    &:hover, &:focus {
+      @apply bg-brand-900 text-white opacity-90;
+    }
+
+    &[disabled] {
+      @apply bg-brand-900 text-white opacity-75;
+    }
+  }
+
+  &__secondary {
+    @apply bg-white text-black;
+    &:hover, &:focus {
+      @apply bg-white opacity-90;
+    }
+  }
+
+  &__bordered {
+    @apply border border-solid border-white text-white bg-transparent;
+
+    &:hover {
+      @apply opacity-80;
+    }
+  }
+
+  &__text {
+    @apply text-white bg-transparent;
+    &:hover, &:focus {
+      @apply text-white bg-transparent opacity-80;
+    }
+  }
+
+  &__link {
+    @apply text-white bg-transparent underline p-0;
+    &:hover, &:focus {
+      @apply text-white bg-transparent opacity-80;
+    }
+  }
+
+  &__p-0 {
+    @apply p-0;
+  }
+
+  &__lg {
+    @apply h-12;
+  }
+
+  &__sm {
+    @apply h-8 px-4 py-1;
+  }
+
+  &__full {
+    @apply w-full justify-center;
+  }
+
+  &__toolbar {
+    @apply border border-gray-600 text-gray-600 rounded-full w-8 h-8 flex justify-center items-center;
+    transition: border-color 0.2s, color 0.2s;
+
+    &__active {
+      @apply text-brand-900 border-brand-900;
+    }
+
+    &:hover:not([disabled]) {
+      @apply border-gray-400 text-gray-400;
+    }
+  }
+
+  & > .feather {
+    @apply -ml-1;
+  }
+
+  &[disabled] {
+    opacity: 0.75;
+  }
+}
+
+.el-button-group .el-button.el-button--primary {
+  @apply bg-brand-900;
+}

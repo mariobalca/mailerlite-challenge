@@ -1,0 +1,62 @@
+.el-table {
+  @apply w-full text-white rounded;
+}
+
+.el-table::before {
+  @apply bg-transparent;
+}
+
+.el-table,
+.el-table th.el-table__cell,
+.el-table th,
+.el-table tr {
+  @apply bg-gray-800;
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  @apply bg-gray-800;
+}
+
+
+.el-table tr.is-selected {
+  background: rgba(116, 121, 127, 0.2);
+  @apply bg-gray-600;
+}
+
+.el-table__header-wrapper tr th.el-table-fixed-column--right,
+.el-table__body-wrapper tr td.el-table-fixed-column--right {
+  @apply bg-gray-800;
+}
+
+.el-table th.el-table__cell.is-leaf,
+.el-table td.el-table__cell {
+  @apply border-b-gray-700;
+}
+
+.el-table__inner-wrapper::before {
+  @apply bg-transparent;
+}
+
+.el-table thead {
+  @apply text-gray-200;
+}
+
+.el-table .caret-wrapper {
+  @apply h-4;
+
+  .sort-caret.ascending {
+    top: -4px;
+  }
+
+  .sort-caret.descending {
+    bottom: -2px;
+  }
+}
+
+.el-pagination-wrapper {
+  @apply w-full flex flex-row-reverse mt-6;
+}
+
+.el-table .table-actions {
+  @apply text-right;
+}

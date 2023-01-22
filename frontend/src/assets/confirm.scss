@@ -1,0 +1,13 @@
+.el-message-box.confirm {
+  @apply bg-gray-800 rounded-md border-none;
+
+  filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+
+  .el-message-box__title, .el-message-box__message {
+    @apply text-white;
+  }
+
+  .el-message-box__btns {
+    @apply py-2 px-4;
+  }
+}

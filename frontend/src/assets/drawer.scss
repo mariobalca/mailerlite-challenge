@@ -1,0 +1,7 @@
+.el-drawer {
+  @apply bg-gray-800;
+
+  &__header {
+    @apply font-semibold text-white text-2xl;
+  }
+}
