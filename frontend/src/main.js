@@ -1,13 +1,13 @@
 import ElementPlus from 'element-plus'
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
-import { createStore } from './store'
+import {createStore} from './store'
 
 import 'element-plus/dist/index.css'
 import './assets/main.scss'
 
 const app = createApp(App)
-const store = await createStore()
+const store = createStore()
 
 app.use(store)
 app.use(ElementPlus)
