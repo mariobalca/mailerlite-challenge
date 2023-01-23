@@ -80,7 +80,8 @@ const computedRows = computed(() => {
   return rows.value.filter((r) => {
     return r.email.includes(query.value) ||
         r.name.includes(query.value) ||
-        r.state?.includes(query.value)
+        r.state?.includes(query.value) ||
+        Object.values(r.fields).some((v) => v.includes(query.value))
   })
 })
 
