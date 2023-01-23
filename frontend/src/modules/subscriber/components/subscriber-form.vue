@@ -51,7 +51,13 @@ const loading = ref(false)
 const email = ref(props.subscriber.email)
 const name = ref(props.subscriber.name)
 const state = ref(props.subscriber.state)
-const fields = reactive(props.subscriber.fields)
+const fields = reactive(
+    Object
+        .keys(props.subscriber.fields)
+        .reduce((acc, item) => {
+          acc[item] = props.subscriber.fields[item]
+          return acc
+        }, {}))
 
 const {doCreate, doUpdate} = mapActions('subscriber')
 const {doFetch: doFetchFields} = mapActions('field')
