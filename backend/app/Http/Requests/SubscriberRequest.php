@@ -25,10 +25,10 @@ class SubscriberRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'     => 'required|email|unique:subscribers,email' . $this->subscriber,
-            'name'      => 'required|max:255',
-            'state'     => 'in:unsubscribed:junk:bounced:unconfirmed',
-            'fields.*'  =>  [new FieldExists]
+            'email' => 'required|email|unique:subscribers,email' . $this->subscriber,
+            'name' => 'required|max:255',
+            'state' => 'in:active,unsubscribed,junk,bounced,unconfirmed',
+            'fields.*' => [new FieldExists]
         ];
     }
 }
