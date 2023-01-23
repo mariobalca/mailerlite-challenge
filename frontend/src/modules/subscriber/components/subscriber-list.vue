@@ -57,7 +57,8 @@
           {{ editing ? 'Edit' : 'Add' }} subscriber
         </div>
       </template>
-      <subscriber-form :subscriber="editing ? find(editing) : {}" @dismiss="drawerVisible = false"></subscriber-form>
+      <subscriber-form :subscriber="editing ? find(editing) : {fields: {}}"
+                       @dismiss="drawerVisible = false"></subscriber-form>
     </el-drawer>
   </div>
 </template>
