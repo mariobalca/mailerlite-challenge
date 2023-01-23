@@ -27,7 +27,7 @@ class SubscriberRequest extends FormRequest
         return [
             'email' => 'required|email|unique:subscribers,email' . $this->subscriber,
             'name' => 'required|max:255',
-            'state' => 'in:active,unsubscribed,junk,bounced,unconfirmed',
+            'state' => 'nullable|in:active,unsubscribed,junk,bounced,unconfirmed',
             'fields.*' => [new FieldExists]
         ];
     }

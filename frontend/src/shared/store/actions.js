@@ -1,8 +1,10 @@
+import Message from "../message";
+
 export default (moduleName, moduleService = null) => {
   const asyncActions = moduleService
     ? {
       async doFetch(
-        { commit, getters }
+        {commit, getters}
       ) {
         try {
           commit('FETCH_STARTED')
@@ -16,7 +18,7 @@ export default (moduleName, moduleService = null) => {
         }
       },
 
-      async doFind({ commit }, id) {
+      async doFind({commit}, id) {
         try {
           commit('FIND_STARTED')
           const record = await moduleService.find(id)
@@ -28,7 +30,7 @@ export default (moduleName, moduleService = null) => {
         }
       },
 
-      async doDestroy({ commit, dispatch }, id) {
+      async doDestroy({commit, dispatch}, id) {
         try {
           commit('DESTROY_STARTED')
 
@@ -36,15 +38,18 @@ export default (moduleName, moduleService = null) => {
 
           commit('DESTROY_SUCCESS')
 
+          Message.success(`${moduleName} destroyed`)
 
           dispatch('doFetch')
         } catch (error) {
           console.log(error)
           commit('DESTROY_ERROR')
+
+          Message.error(error)
         }
       },
 
-      async doCreate({ commit }, values) {
+      async doCreate({commit}, values) {
         try {
           commit('CREATE_STARTED')
           const response = await moduleService.create(
@@ -52,17 +57,17 @@ export default (moduleName, moduleService = null) => {
           )
           commit('CREATE_SUCCESS', response)
 
-
+          Message.success(`${moduleName} created`)
           return response
         } catch (error) {
           console.log(error)
           commit('CREATE_ERROR')
-
+          Message.error(error)
           return false
         }
       },
 
-      async doUpdate({ commit }, { id, values }) {
+      async doUpdate({commit}, {id, values}) {
         try {
           commit('UPDATE_STARTED')
 
@@ -72,12 +77,13 @@ export default (moduleName, moduleService = null) => {
           )
 
           commit('UPDATE_SUCCESS', response)
+          Message.success(`${moduleName} updated`)
 
           return response
         } catch (error) {
           console.log(error)
           commit('UPDATE_ERROR')
-
+          Message.error(error)
           return false
         }
       }
@@ -86,15 +92,15 @@ export default (moduleName, moduleService = null) => {
 
   return {
     ...asyncActions,
-    doUnselectAll({ commit }) {
+    doUnselectAll({commit}) {
       commit('UNSELECT_ALL')
     },
 
-    doMountTable({ commit }, table) {
+    doMountTable({commit}, table) {
       commit('TABLE_MOUNTED', table)
     },
 
-    doReset({ commit, dispatch }) {
+    doReset({commit, dispatch}) {
       commit('RESETED')
       return dispatch('doFetch', {})
     }
