@@ -5,7 +5,7 @@ Code challenge made for the [Laravel and Vue.js Developer position](https://www.
 
 Frontend styleguide from [Tweetboard](https://tweetboard.io) (a side-project of mine, which I can also show/demo during the call/interview).
 
-[Live demo](https://google.com)
+[Live demo](https://mailerlite-challenge-g3h7o.ondigitalocean.app/)
 
 ### Instructions to run locally (with Docker)
 
